@@ -1,0 +1,166 @@
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+}
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+section {
+  height: 100%;
+  background: -webkit-linear-gradient(#000000, #232323);
+  background: linear-gradient(#000000, #232323);
+}
+.rwby-wrapper {
+  position: relative;
+  width: 640px;
+  height: 360px;
+  margin: 0 auto;
+  z-index: 0;
+}
+.panel {
+  width: 160px;
+  height: 360px;
+  display: inline-block;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: 1s all ease-in-out;
+  transition: 1s all ease-in-out;
+  z-index: 0;
+}
+.panel.active {
+  left: 0 !important;
+  width: 640px;
+  border-width: 0;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-transition: 1s all ease-in-out;
+  transition: 1s all ease-in-out;
+  z-index: 100;
+}
+.panel.active .back {
+  -webkit-transition: 0.2s 0.8s box-shadow;
+  transition: 0.2s 0.8s box-shadow;
+}
+.panel.active.one .back {
+  box-shadow: 0 0 10px 5px #f00,
+      0 0 40px 10px #000;
+}
+.panel.active.two .back {
+  box-shadow: 0 0 10px 5px #fff,
+      0 0 40px 10px #99f;
+}
+.panel.active.three .back {
+  box-shadow: 0 0 10px 5px #000,
+      0 0 40px 10px #c0f;
+}
+.panel.active.four .back {
+  box-shadow: 0 0 10px 5px #ff0,
+      0 0 40px 10px #f90;
+}
+.panel .front,
+.panel .back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  opacity: .99;
+  z-index: 0;
+}
+.panel .front {
+  width: 160px;
+  height: 360px;
+  border: 1rem solid #000;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: 1s all ease-in-out;
+  transition: 1s all ease-in-out;
+}
+.panel .back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  /*iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }*/
+}
+.panel.one {
+  left: 0;
+}
+.panel.one .front {
+  background: url(http://img2.wikia.nocookie.net/__cb20130701122724/rwby/images/thumb/2/2d/RubyReveal.png/197px-RubyReveal.png);
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: .99;
+}
+.panel.two {
+  left: 160px;
+}
+.panel.two .front {
+  background: url(http://img2.wikia.nocookie.net/__cb20130701122719/rwby/images/thumb/3/33/WeissReveal.png/197px-WeissReveal.png);
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: .99;
+}
+.panel.three {
+  left: 320px;
+}
+.panel.three .front {
+  background: url(http://img2.wikia.nocookie.net/__cb20130701122712/rwby/images/thumb/6/69/BlakeReveal.png/197px-BlakeReveal.png);
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: .99;
+}
+.panel.four {
+  left: 480px;
+}
+.panel.four .front {
+  background: url(http://img2.wikia.nocookie.net/__cb20130701122051/rwby/images/thumb/0/09/YangReveal.png/197px-YangReveal.png);
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: .99;
+}
+.backgrounds {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+.backgrounds .ruby {
+  height: 100%;
+  width: 25%;
+}
+.backgrounds .weiss {
+  height: 100%;
+  width: 25%;
+}
+.backgrounds .blake {
+  height: 100%;
+  width: 25%;
+}
+.backgrounds .yang {
+  height: 100%;
+  width: 25%;
+}
