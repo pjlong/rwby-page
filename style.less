@@ -8,9 +8,9 @@
 @char-height: 22rem;
 
 html {
-  height: 100%;
   padding: 0;
   margin: 0;
+  height: 100%;
   min-width: 100%;
 }
 
@@ -19,50 +19,48 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
+  background: linear-gradient(#000, #232323);
+  padding: 5% 0;
+  box-sizing: border-box;
 }
 
 section {
-  height: 100%;
-  background: linear-gradient(#000, #232323);
-  //background-color: #000;
+  //height: 100%;
 }
 
 .rwby-wrapper { 
-  //background-color: transparent;
-  //border: 1px solid #f00;
   position: relative;
   width: @window-width;
   height: @window-height;
   margin: 0 auto;
-  //box-shadow: 0 0 25px 2px rgba(255, 255, 255, .5);
   z-index: 0;
 }
 
 .panel {
-  //background-color: rgba(20, 20, 20, 1);
-  // border: 1px solid #f00;
-  
   width: @panel-width;
   height: @panel-height;
   
   display: inline-block;
   position: absolute;
-  //box-sizing: border-box;
-
-  //transform: rotateY(180deg);
   transform-style: preserve-3d;
-  transition: 1s all ease-in-out;
+  transition: width .5s .5s, all .5s;
   z-index: 0;
   
   &.active {
     left: 0 !important;
     width: @window-width;
     border-width: 0;
-    
-    transform: rotateY(180deg);
-    transition: 1s all ease-in-out;
-    
+
+    transition: width .5s .5s, all .5s;
     z-index: 100;
+
+    &.one, &.two {
+      transform: rotateY(-179.99deg);
+    }
+
+    &.three, &.four {
+      transform: rotateY(179.99deg);
+    }
 
     .back {
       transition: .2s .8s box-shadow;
@@ -70,7 +68,7 @@ section {
 
     &.one .back{
       box-shadow: 0 0 10px 5px #f00,
-      0 0 40px 10px #000;
+      0 0 40px 10px #301;
     }
 
     &.two .back{
@@ -80,11 +78,11 @@ section {
 
     &.three .back{
       box-shadow: 0 0 10px 5px #000,
-      0 0 40px 10px #c0f;
+      0 0 40px 10px #204;
     }
 
     &.four .back{
-      box-shadow: 0 0 10px 5px #ff0,
+      box-shadow: 0 0 10px 7px #ff0,
       0 0 40px 10px #f90;
     }
   }
@@ -93,7 +91,6 @@ section {
   .back {
     backface-visibility: hidden;
     position: absolute;
-    opacity: .99;
     z-index: 0;
   }
   
@@ -101,9 +98,6 @@ section {
     width: @panel-width;
     height: @panel-height;
     border: 1rem solid #000;
-    //top: 50%;
-    //left: 50%;
-    //margin: -@panel-height/2 -@panel-width/2;
 
     box-sizing: border-box;
     transition: 1s all ease-in-out;
@@ -111,18 +105,11 @@ section {
   
   .back {
     transform: rotateY(180deg);
-    //background-color: rgba(0,0,0,.5);
     box-sizing: border-box;
 
     width: 100%;
     height: 100%;
     
-    /*iframe {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }*/
   }  
   
   &.one {
@@ -185,39 +172,43 @@ section {
 .backgrounds {
   display: flex;
   position: absolute;
-
+  top: 0;
   height: 100%;
   width: 100%;
   z-index: 0;
 
-  .ruby {
-  //position: absolute;
+  .emblem {
+    opacity: 0;
+    width: 100%;
     height: 100%;
-    width: 25%;
+    position: absolute;
+  }
+
+  .ruby {
+    background: url(http://img4.wikia.nocookie.net/__cb20140810193819/rwby/images/9/91/Ruby_emblem_trans.png) no-repeat;
+    background-position: center center;
+
     //background-color: rgba(255, 0, 0, .3);
     
   }
 
   .weiss {
-  //position: absolute;
-    height: 100%;
-    width: 25%;
+    background: url(http://img4.wikia.nocookie.net/__cb20140810194747/rwby/images/b/bd/Weiss_emblem_trans.png) no-repeat;
+    background-position: center center;
     //background-color: rgba(255, 255, 255, .3);
     
   }
 
   .blake {
-  //position: absolute;
-    height: 100%;
-    width: 25%;
+    background: url(http://img4.wikia.nocookie.net/__cb20140810194746/rwby/images/2/2a/Blake_emblem_trans.png) no-repeat;
+    background-position: center center;
     //background-color: rgba(0, 0, 0, .3);
     
   }
 
   .yang {
-  //position: absolute;
-    height: 100%;
-    width: 25%;
+    background: url(http://img2.wikia.nocookie.net/__cb20140810194747/rwby/images/0/0c/Yang_emblem_trans.png) no-repeat;
+    background-position: center center;
     //background-color: rgba(255, 255, 0, .3);
     
   }

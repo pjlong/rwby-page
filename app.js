@@ -36,11 +36,10 @@ function onPlayerReady(event) {
 }
 
 function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PAUSED
-      || event.data == YT.PlayerState.ENDED) {
-   $(event.target.d)
-    .parents('.panel')
-    .toggleClass('active');
+  if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+    $(event.target.d)
+      .parents('.panel')
+      .removeClass('active');
   }
 
   if (event.data == YT.PlayerState.PLAYING) {

@@ -1,7 +1,7 @@
 html {
-  height: 100%;
   padding: 0;
   margin: 0;
+  height: 100%;
   min-width: 100%;
 }
 body {
@@ -9,11 +9,11 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-}
-section {
-  height: 100%;
   background: -webkit-linear-gradient(#000000, #232323);
   background: linear-gradient(#000000, #232323);
+  padding: 5% 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .rwby-wrapper {
   position: relative;
@@ -29,19 +29,27 @@ section {
   position: absolute;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transition: 1s all ease-in-out;
-  transition: 1s all ease-in-out;
+  -webkit-transition: width .5s .5s, all .5s;
+  transition: width .5s .5s, all .5s;
   z-index: 0;
 }
 .panel.active {
   left: 0 !important;
   width: 640px;
   border-width: 0;
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  -webkit-transition: 1s all ease-in-out;
-  transition: 1s all ease-in-out;
+  -webkit-transition: width .5s .5s, all .5s;
+  transition: width .5s .5s, all .5s;
   z-index: 100;
+}
+.panel.active.one,
+.panel.active.two {
+  -webkit-transform: rotateY(-179.99deg);
+  transform: rotateY(-179.99deg);
+}
+.panel.active.three,
+.panel.active.four {
+  -webkit-transform: rotateY(179.99deg);
+  transform: rotateY(179.99deg);
 }
 .panel.active .back {
   -webkit-transition: 0.2s 0.8s box-shadow;
@@ -49,7 +57,7 @@ section {
 }
 .panel.active.one .back {
   box-shadow: 0 0 10px 5px #f00,
-      0 0 40px 10px #000;
+      0 0 40px 10px #301;
 }
 .panel.active.two .back {
   box-shadow: 0 0 10px 5px #fff,
@@ -57,10 +65,10 @@ section {
 }
 .panel.active.three .back {
   box-shadow: 0 0 10px 5px #000,
-      0 0 40px 10px #c0f;
+      0 0 40px 10px #204;
 }
 .panel.active.four .back {
-  box-shadow: 0 0 10px 5px #ff0,
+  box-shadow: 0 0 10px 7px #ff0,
       0 0 40px 10px #f90;
 }
 .panel .front,
@@ -68,7 +76,6 @@ section {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: absolute;
-  opacity: .99;
   z-index: 0;
 }
 .panel .front {
@@ -87,12 +94,6 @@ section {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  /*iframe {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }*/
 }
 .panel.one {
   left: 0;
@@ -144,23 +145,30 @@ section {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
+  top: 0;
   height: 100%;
   width: 100%;
   z-index: 0;
 }
-.backgrounds .ruby {
+.backgrounds .emblem {
+  opacity: 0;
+  width: 100%;
   height: 100%;
-  width: 25%;
+  position: absolute;
+}
+.backgrounds .ruby {
+  background: url(http://img4.wikia.nocookie.net/__cb20140810193819/rwby/images/9/91/Ruby_emblem_trans.png) no-repeat;
+  background-position: center center;
 }
 .backgrounds .weiss {
-  height: 100%;
-  width: 25%;
+  background: url(http://img4.wikia.nocookie.net/__cb20140810194747/rwby/images/b/bd/Weiss_emblem_trans.png) no-repeat;
+  background-position: center center;
 }
 .backgrounds .blake {
-  height: 100%;
-  width: 25%;
+  background: url(http://img4.wikia.nocookie.net/__cb20140810194746/rwby/images/2/2a/Blake_emblem_trans.png) no-repeat;
+  background-position: center center;
 }
 .backgrounds .yang {
-  height: 100%;
-  width: 25%;
+  background: url(http://img2.wikia.nocookie.net/__cb20140810194747/rwby/images/0/0c/Yang_emblem_trans.png) no-repeat;
+  background-position: center center;
 }
