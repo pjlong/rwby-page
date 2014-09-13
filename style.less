@@ -7,6 +7,16 @@
 @char-width: 11rem;
 @char-height: 22rem;
 
+@ruby-shadow: 0 0 10px 5px #f00,
+              0 0 40px 10px #301;
+@weiss-shadow: 0 0 10px 5px #fff,
+               0 0 40px 10px #99f;
+@blake-shadow: 0 0 10px 5px #000,
+               0 0 40px 10px #204;
+@yang-shadow: 0 0 10px 7px #ff0,
+              0 0 40px 10px #f90;
+
+
 html {
   padding: 0;
   margin: 0;
@@ -28,7 +38,8 @@ section {
   //height: 100%;
 }
 
-.rwby-wrapper { 
+.rwby-wrapper {
+  background-color: #000;
   position: relative;
   width: @window-width;
   height: @window-height;
@@ -43,9 +54,11 @@ section {
   display: inline-block;
   position: absolute;
   transform-style: preserve-3d;
-  transition: all .5s ease .75s,
+  transition: transform .5s ease .75s,
               width .75s ease-out,
-              left .75s ease-out; 
+              left .75s ease-out,
+              z-index 0s,
+              box-shadow .25s; 
   z-index: 0;
   
   &.active {
@@ -55,7 +68,7 @@ section {
 
     transition: transform .75s,
                 width .5s ease-in .75s,
-	        left .5s ease-in .75s;
+                left .5s ease-in .75s;
 
     z-index: 100;
 
@@ -71,24 +84,20 @@ section {
       transition: .2s .8s box-shadow;
     }
 
-    &.one .back{
-      box-shadow: 0 0 10px 5px #f00,
-      0 0 40px 10px #301;
+    &.one .back {
+      box-shadow: @ruby-shadow;
     }
 
-    &.two .back{
-      box-shadow: 0 0 10px 5px #fff,
-      0 0 40px 10px #99f;
+    &.two .back {
+      box-shadow: @weiss-shadow;
     }
 
-    &.three .back{
-      box-shadow: 0 0 10px 5px #000,
-      0 0 40px 10px #204;
+    &.three .back {
+      box-shadow: @blake-shadow;
     }
 
-    &.four .back{
-      box-shadow: 0 0 10px 7px #ff0,
-      0 0 40px 10px #f90;
+    &.four .back {
+      box-shadow: @yang-shadow;
     }
   }
 
@@ -100,12 +109,18 @@ section {
   }
   
   .front {
-    width: @panel-width;
+    width: @panel-width ;
     height: @panel-height;
-    border: 1rem solid #000;
+    border: .625rem solid transparent;
 
     box-sizing: border-box;
-    transition: 1s all ease-in-out;
+    transition: .25s all;
+
+    &:hover {
+      border-width: 0;
+      z-index: 10;
+      transition: .25s all;
+    }
   }
   
   .back {
@@ -114,9 +129,14 @@ section {
 
     width: 100%;
     height: 100%;
-    
   }  
-  
+
+  &:hover {
+    z-index: 10;
+    transition: .25s z-index,
+                .25s box-shadow;
+  }
+
   &.one {
     left: 0;
     
@@ -126,13 +146,14 @@ section {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      opacity: .99;
+    }
+      &:hover {
+        box-shadow: @ruby-shadow;
     }
   }
   
   &.two {
     left: @panel-width;
-    //margin-left: -1rem;
 
     .front{
       background: url(http://img2.wikia.nocookie.net/__cb20130701122719/rwby/images/thumb/3/33/WeissReveal.png/197px-WeissReveal.png);
@@ -140,13 +161,15 @@ section {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      opacity: .99;
+    }
+      &:hover {
+        box-shadow: @weiss-shadow;
+      
     }
   }
   
   &.three {
     left: 2*@panel-width;
-    //margin-left: -2rem;
     
     .front{
       background: url(http://img2.wikia.nocookie.net/__cb20130701122712/rwby/images/thumb/6/69/BlakeReveal.png/197px-BlakeReveal.png);
@@ -154,13 +177,15 @@ section {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      opacity: .99;
+    }
+      &:hover {
+        box-shadow: @blake-shadow;
+      
     }
   }
   
   &.four {
     left: 3*@panel-width;
-    //margin-left: -3rem;
 
     .front{
       background: url(http://img2.wikia.nocookie.net/__cb20130701122051/rwby/images/thumb/0/09/YangReveal.png/197px-YangReveal.png);
@@ -168,7 +193,10 @@ section {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      opacity: .99;
+    }
+      &:hover {
+        box-shadow: @yang-shadow;
+      
     }
   }
 }
@@ -180,7 +208,7 @@ section {
   top: 0;
   height: 100%;
   width: 100%;
-  z-index: 0;
+  z-index: -1;
 
   .emblem {
     opacity: 0;
@@ -192,30 +220,20 @@ section {
   .ruby {
     background: url(http://img4.wikia.nocookie.net/__cb20140810193819/rwby/images/9/91/Ruby_emblem_trans.png) no-repeat;
     background-position: center center;
-
-    //background-color: rgba(255, 0, 0, .3);
-    
   }
 
   .weiss {
     background: url(http://img4.wikia.nocookie.net/__cb20140810194747/rwby/images/b/bd/Weiss_emblem_trans.png) no-repeat;
     background-position: center center;
-    //background-color: rgba(255, 255, 255, .3);
-    
   }
 
   .blake {
     background: url(http://img4.wikia.nocookie.net/__cb20140810194746/rwby/images/2/2a/Blake_emblem_trans.png) no-repeat;
     background-position: center center;
-    //background-color: rgba(0, 0, 0, .3);
-    
   }
 
   .yang {
     background: url(http://img2.wikia.nocookie.net/__cb20140810194747/rwby/images/0/0c/Yang_emblem_trans.png) no-repeat;
     background-position: center center;
-    //background-color: rgba(255, 255, 0, .3);
-    
   }
-
 }

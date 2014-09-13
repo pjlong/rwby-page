@@ -16,6 +16,7 @@ body {
   box-sizing: border-box;
 }
 .rwby-wrapper {
+  background-color: #000;
   position: relative;
   width: 640px;
   height: 360px;
@@ -29,8 +30,8 @@ body {
   position: absolute;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transition: all 0.5s ease 0.75s, width 0.75s ease-out, left 0.75s ease-out;
-  transition: all 0.5s ease 0.75s, width 0.75s ease-out, left 0.75s ease-out;
+  -webkit-transition: -webkit-transform 0.5s ease 0.75s, width 0.75s ease-out, left 0.75s ease-out, z-index 0s, box-shadow 0.25s;
+  transition: transform 0.5s ease 0.75s, width 0.75s ease-out, left 0.75s ease-out, z-index 0s, box-shadow 0.25s;
   z-index: 0;
 }
 .panel.active {
@@ -55,20 +56,16 @@ body {
   transition: 0.2s 0.8s box-shadow;
 }
 .panel.active.one .back {
-  box-shadow: 0 0 10px 5px #f00,
-      0 0 40px 10px #301;
+  box-shadow: 0 0 10px 5px #ff0000, 0 0 40px 10px #330011;
 }
 .panel.active.two .back {
-  box-shadow: 0 0 10px 5px #fff,
-      0 0 40px 10px #99f;
+  box-shadow: 0 0 10px 5px #ffffff, 0 0 40px 10px #9999ff;
 }
 .panel.active.three .back {
-  box-shadow: 0 0 10px 5px #000,
-      0 0 40px 10px #204;
+  box-shadow: 0 0 10px 5px #000000, 0 0 40px 10px #220044;
 }
 .panel.active.four .back {
-  box-shadow: 0 0 10px 7px #ff0,
-      0 0 40px 10px #f90;
+  box-shadow: 0 0 10px 7px #ffff00, 0 0 40px 10px #ff9900;
 }
 .panel .front,
 .panel .back {
@@ -80,11 +77,17 @@ body {
 .panel .front {
   width: 160px;
   height: 360px;
-  border: 1rem solid #000;
+  border: .625rem solid transparent;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: 1s all ease-in-out;
-  transition: 1s all ease-in-out;
+  -webkit-transition: .25s all;
+  transition: .25s all;
+}
+.panel .front:hover {
+  border-width: 0;
+  z-index: 10;
+  -webkit-transition: .25s all;
+  transition: .25s all;
 }
 .panel .back {
   -webkit-transform: rotateY(180deg);
@@ -93,6 +96,11 @@ body {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+}
+.panel:hover {
+  z-index: 10;
+  -webkit-transition: 0.25s z-index, 0.25s box-shadow;
+  transition: 0.25s z-index, 0.25s box-shadow;
 }
 .panel.one {
   left: 0;
@@ -103,7 +111,9 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  opacity: .99;
+}
+.panel.one:hover {
+  box-shadow: 0 0 10px 5px #ff0000, 0 0 40px 10px #330011;
 }
 .panel.two {
   left: 160px;
@@ -114,7 +124,9 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  opacity: .99;
+}
+.panel.two:hover {
+  box-shadow: 0 0 10px 5px #ffffff, 0 0 40px 10px #9999ff;
 }
 .panel.three {
   left: 320px;
@@ -125,7 +137,9 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  opacity: .99;
+}
+.panel.three:hover {
+  box-shadow: 0 0 10px 5px #000000, 0 0 40px 10px #220044;
 }
 .panel.four {
   left: 480px;
@@ -136,7 +150,9 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  opacity: .99;
+}
+.panel.four:hover {
+  box-shadow: 0 0 10px 7px #ffff00, 0 0 40px 10px #ff9900;
 }
 .backgrounds {
   display: -webkit-box;
@@ -147,7 +163,7 @@ body {
   top: 0;
   height: 100%;
   width: 100%;
-  z-index: 0;
+  z-index: -1;
 }
 .backgrounds .emblem {
   opacity: 0;
