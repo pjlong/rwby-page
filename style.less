@@ -43,15 +43,20 @@ section {
   display: inline-block;
   position: absolute;
   transform-style: preserve-3d;
-  transition: width .5s .5s, all .5s;
+  transition: all .5s ease .75s,
+              width .75s ease-out,
+              left .75s ease-out; 
   z-index: 0;
   
   &.active {
     left: 0 !important;
-    width: @window-width;
+    //width: @window-width;
     border-width: 0;
 
-    transition: width .5s .5s, all .5s;
+    transition: transform .75s,
+                width .5s ease-in .75s,
+	        left .5s ease-in .75s;
+
     z-index: 100;
 
     &.one, &.two {

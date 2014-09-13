@@ -29,16 +29,15 @@ body {
   position: absolute;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transition: width .5s .5s, all .5s;
-  transition: width .5s .5s, all .5s;
+  -webkit-transition: all 0.5s ease 0.75s, width 0.75s ease-out, left 0.75s ease-out;
+  transition: all 0.5s ease 0.75s, width 0.75s ease-out, left 0.75s ease-out;
   z-index: 0;
 }
 .panel.active {
   left: 0 !important;
-  width: 640px;
   border-width: 0;
-  -webkit-transition: width .5s .5s, all .5s;
-  transition: width .5s .5s, all .5s;
+  -webkit-transition: -webkit-transform 0.75s, width 0.5s ease-in 0.75s, left 0.5s ease-in 0.75s;
+  transition: transform 0.75s, width 0.5s ease-in 0.75s, left 0.5s ease-in 0.75s;
   z-index: 100;
 }
 .panel.active.one,
