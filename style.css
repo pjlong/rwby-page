@@ -15,6 +15,9 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.player {
+  opacity: 0;
+}
 .rwby-wrapper {
   background-color: #000;
   position: relative;
@@ -37,8 +40,8 @@ body {
 .panel.active {
   left: 0 !important;
   border-width: 0;
-  -webkit-transition: -webkit-transform 0.75s, width 0.5s ease-in 0.75s, left 0.5s ease-in 0.75s;
-  transition: transform 0.75s, width 0.5s ease-in 0.75s, left 0.5s ease-in 0.75s;
+  -webkit-transition: -webkit-transform 3.75s, width 3.5s ease-in 3.75s, left 3.5s ease-in 3.75s;
+  transition: transform 3.75s, width 3.5s ease-in 3.75s, left 3.5s ease-in 3.75s;
   z-index: 100;
 }
 .panel.active.one,
