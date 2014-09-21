@@ -1,3 +1,11 @@
+/* Shadows */
+.ruby_shadow_inset {
+  box-shadow: inset 0 0 10px 5px #ff0000, inset 0 0 40px 10px #330011;
+}
+.blake_shadow_inset {
+  box-shadow: inset 0 0 10px 5px #000000, inset 0 0 40px 10px #220044;
+}
+/* Transition Timing */
 html {
   padding: 0;
   margin: 0;
@@ -15,9 +23,6 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.player {
-  opacity: 0;
-}
 .rwby-wrapper {
   background-color: #000;
   position: relative;
@@ -33,16 +38,33 @@ body {
   position: absolute;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transition: -webkit-transform 0.5s ease 0.75s, width 0.75s ease-out, left 0.75s ease-out, z-index 0s, box-shadow 0.25s;
-  transition: transform 0.5s ease 0.75s, width 0.75s ease-out, left 0.75s ease-out, z-index 0s, box-shadow 0.25s;
+  -webkit-perspective: 100px;
+  perspective: 100px;
   z-index: 0;
+  -webkit-transition: -webkit-transform 0.5s 0.75s, width 0.75s ease-in, left 0.75s ease-in, z-index 0s 1.25s;
+  transition: transform 0.5s 0.75s, width 0.75s ease-in, left 0.75s ease-in, z-index 0s 1.25s;
+}
+.panel:hover {
+  z-index: 10;
 }
 .panel.active {
-  left: 0 !important;
+  width: 640px;
   border-width: 0;
-  -webkit-transition: -webkit-transform 3.75s, width 3.5s ease-in 3.75s, left 3.5s ease-in 3.75s;
-  transition: transform 3.75s, width 3.5s ease-in 3.75s, left 3.5s ease-in 3.75s;
   z-index: 100;
+  -webkit-transition: -webkit-transform 0.5s, width 0.75s ease-in 0.5s, left 0.75s ease-in 0.5s;
+  transition: transform 0.5s, width 0.75s ease-in 0.5s, left 0.75s ease-in 0.5s;
+}
+.panel.active.one,
+.panel.active.two,
+.panel.active.three,
+.panel.active.four {
+  left: 0;
+}
+.panel.active.one:hover,
+.panel.active.two:hover,
+.panel.active.three:hover,
+.panel.active.four:hover {
+  box-shadow: 0 0 transparent;
 }
 .panel.active.one,
 .panel.active.two {
@@ -55,8 +77,13 @@ body {
   transform: rotateY(179.99deg);
 }
 .panel.active .back {
-  -webkit-transition: 0.2s 0.8s box-shadow;
-  transition: 0.2s 0.8s box-shadow;
+  -webkit-transition: box-shadow 0.5s ease 1.25s;
+  transition: box-shadow 0.5s ease 1.25s;
+}
+.panel.active .back .player {
+  opacity: 1;
+  -webkit-transition: 0.25s opacity 1.25s;
+  transition: 0.25s opacity 1.25s;
 }
 .panel.active.one .back {
   box-shadow: 0 0 10px 5px #ff0000, 0 0 40px 10px #330011;
@@ -97,13 +124,12 @@ body {
   transform: rotateY(180deg);
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  background-color: #000000;
   width: 100%;
   height: 100%;
 }
-.panel:hover {
-  z-index: 10;
-  -webkit-transition: 0.25s z-index, 0.25s box-shadow;
-  transition: 0.25s z-index, 0.25s box-shadow;
+.panel .back .player {
+  opacity: 0;
 }
 .panel.one {
   left: 0;
@@ -115,8 +141,8 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
 }
-.panel.one:hover {
-  box-shadow: 0 0 10px 5px #ff0000, 0 0 40px 10px #330011;
+.panel.one .front:hover {
+  box-shadow: inset 0 0 10px 5px #ff0000, inset 0 0 40px 10px #330011;
 }
 .panel.two {
   left: 160px;
@@ -128,8 +154,8 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
 }
-.panel.two:hover {
-  box-shadow: 0 0 10px 5px #ffffff, 0 0 40px 10px #9999ff;
+.panel.two .front:hover {
+  box-shadow: inset 0 0 10px 5px #ffffff, inset 0 0 40px 10px #9999ff;
 }
 .panel.three {
   left: 320px;
@@ -141,8 +167,8 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
 }
-.panel.three:hover {
-  box-shadow: 0 0 10px 5px #000000, 0 0 40px 10px #220044;
+.panel.three .front:hover {
+  box-shadow: inset 0 0 10px 5px #000000, inset 0 0 40px 10px #220044;
 }
 .panel.four {
   left: 480px;
@@ -154,8 +180,8 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
 }
-.panel.four:hover {
-  box-shadow: 0 0 10px 7px #ffff00, 0 0 40px 10px #ff9900;
+.panel.four .front:hover {
+  box-shadow: inset 0 0 10px 7px #ffff00, inset 0 0 40px 10px #ff9900;
 }
 .backgrounds {
   display: -webkit-box;
@@ -189,4 +215,7 @@ body {
 .backgrounds .yang {
   background: url(http://img2.wikia.nocookie.net/__cb20140810194747/rwby/images/0/0c/Yang_emblem_trans.png) no-repeat;
   background-position: center center;
+}
+.ad-container.ad-overlay {
+  visibility: hidden !important;
 }
