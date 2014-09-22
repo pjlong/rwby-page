@@ -251,37 +251,56 @@ section {
 
 
 .backgrounds {
-  display: flex;
   position: absolute;
   top: 0;
   height: 100%;
   width: 100%;
   z-index: -1;
+}
+ 
+.emblem {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: .5s opacity;
 
-  .emblem {
-    opacity: 0;
-    width: 100%;
-    height: 100%;
+  &:after {
+    content: "Original Artist: u/Blob-Monster";
+    color: #fff;
+    text-shadow: 0 0 2px #000;
     position: absolute;
+    bottom: 1%;
+    right: 1%;
   }
 
-  .ruby {
-    background: url(http://img4.wikia.nocookie.net/__cb20140810193819/rwby/images/9/91/Ruby_emblem_trans.png) no-repeat;
+  &.active {
+    opacity: .75;
+    transition: .25s opacity @panel-flip-time + @panel-stretch-time
+  }
+
+
+  &.ruby {
+    background: url(http://i.imgur.com/K0M3ykU.jpg) no-repeat;
+    background-size: cover;
     background-position: center center;
   }
 
-  .weiss {
-    background: url(http://img4.wikia.nocookie.net/__cb20140810194747/rwby/images/b/bd/Weiss_emblem_trans.png) no-repeat;
+  &.weiss {
+    background: url(http://i.imgur.com/owwMIkJ.jpg) no-repeat;
+    background-size: cover;
     background-position: center center;
   }
 
-  .blake {
-    background: url(http://img4.wikia.nocookie.net/__cb20140810194746/rwby/images/2/2a/Blake_emblem_trans.png) no-repeat;
+  &.blake {
+    background: url(http://i.imgur.com/qXHN6PA.jpg) no-repeat;
+    background-size: cover;
     background-position: center center;
   }
 
-  .yang {
-    background: url(http://img2.wikia.nocookie.net/__cb20140810194747/rwby/images/0/0c/Yang_emblem_trans.png) no-repeat;
+  &.yang {
+    background: url(http://i.imgur.com/dWwPTeZ.jpg) no-repeat;
+    background-size: cover;
     background-position: center center;
   }
 }

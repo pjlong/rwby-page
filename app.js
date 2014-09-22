@@ -37,9 +37,10 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-    $(event.target.d)
+    var $panel = $(event.target.d)
       .parents('.panel')
-      .removeClass('active');
+    $panel.removeClass('active');
+    $('.emblem.'+$panel.attr('id')).toggleClass('active');
   }
 
   if (event.data == YT.PlayerState.PLAYING) {
@@ -65,5 +66,6 @@ $(document).on('click', '.panel', function (e) {
     var curPlayer = player[$(this).find('.player').attr('id')];
     curPlayer.playVideo();
     $panel.toggleClass('active');
+    $('.emblem.'+$panel.attr('id')).toggleClass('active');
   }
 });
