@@ -208,8 +208,8 @@ body {
 }
 .emblem.active {
   opacity: .75;
-  -webkit-transition: 0.25s opacity 1.25s;
-  transition: 0.25s opacity 1.25s;
+  -webkit-transition: 0.5s opacity 1.25s;
+  transition: 0.5s opacity 1.25s;
 }
 .emblem.ruby {
   background: url(http://i.imgur.com/K0M3ykU.jpg) no-repeat;
