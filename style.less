@@ -51,8 +51,8 @@
 }
 
 /* Transition Timing */
-@panel-flip-time: .5s;
-@panel-stretch-time: .75s;
+@panel-flip-time: .75s;
+@panel-stretch-time: .5s;
 
 
 html {
@@ -81,6 +81,7 @@ section {
   position: relative;
   width: @window-width;
   height: @window-height;
+  perspective: 750px;
   margin: 0 auto;
   z-index: 0;
 }
@@ -92,7 +93,6 @@ section {
   display: inline-block;
   position: absolute;
   transform-style: preserve-3d;
-  perspective: 100px;
   z-index: 0;
   transition: transform @panel-flip-time @panel-stretch-time,
               width @panel-stretch-time ease-in,
@@ -125,11 +125,11 @@ section {
     }
 
     &.one, &.two {
-      transform: rotateY(-179.99deg);
+      transform: rotateY(179.99deg);
     }
 
     &.three, &.four {
-      transform: rotateY(179.99deg);
+      transform: rotateY(-179.99deg);
     }
 
     .back {
@@ -266,7 +266,7 @@ section {
   transition: .5s opacity;
 
   &:after {
-    content: "Original Artist: u/Blob-Monster";
+    content: "Deviantart: The-Blobmonster";
     color: #fff;
     text-shadow: 0 0 2px #000;
     position: absolute;

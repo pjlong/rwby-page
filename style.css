@@ -28,6 +28,8 @@ body {
   position: relative;
   width: 640px;
   height: 360px;
+  -webkit-perspective: 750px;
+  perspective: 750px;
   margin: 0 auto;
   z-index: 0;
 }
@@ -38,11 +40,9 @@ body {
   position: absolute;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-perspective: 100px;
-  perspective: 100px;
   z-index: 0;
-  -webkit-transition: -webkit-transform 0.5s 0.75s, width 0.75s ease-in, left 0.75s ease-in, z-index 0s 1.25s;
-  transition: transform 0.5s 0.75s, width 0.75s ease-in, left 0.75s ease-in, z-index 0s 1.25s;
+  -webkit-transition: -webkit-transform 0.75s 0.5s, width 0.5s ease-in, left 0.5s ease-in, z-index 0s 1.25s;
+  transition: transform 0.75s 0.5s, width 0.5s ease-in, left 0.5s ease-in, z-index 0s 1.25s;
 }
 .panel:hover {
   z-index: 10;
@@ -51,8 +51,8 @@ body {
   width: 640px;
   border-width: 0;
   z-index: 100;
-  -webkit-transition: -webkit-transform 0.5s, width 0.75s ease-in 0.5s, left 0.75s ease-in 0.5s;
-  transition: transform 0.5s, width 0.75s ease-in 0.5s, left 0.75s ease-in 0.5s;
+  -webkit-transition: -webkit-transform 0.75s, width 0.5s ease-in 0.75s, left 0.5s ease-in 0.75s;
+  transition: transform 0.75s, width 0.5s ease-in 0.75s, left 0.5s ease-in 0.75s;
 }
 .panel.active.one,
 .panel.active.two,
@@ -68,13 +68,13 @@ body {
 }
 .panel.active.one,
 .panel.active.two {
-  -webkit-transform: rotateY(-179.99deg);
-  transform: rotateY(-179.99deg);
+  -webkit-transform: rotateY(179.99deg);
+  transform: rotateY(179.99deg);
 }
 .panel.active.three,
 .panel.active.four {
-  -webkit-transform: rotateY(179.99deg);
-  transform: rotateY(179.99deg);
+  -webkit-transform: rotateY(-179.99deg);
+  transform: rotateY(-179.99deg);
 }
 .panel.active .back {
   -webkit-transition: box-shadow 0.5s ease 1.25s;
@@ -199,7 +199,7 @@ body {
   transition: .5s opacity;
 }
 .emblem:after {
-  content: "Original Artist: u/Blob-Monster";
+  content: "Deviantart: The-Blobmonster";
   color: #fff;
   text-shadow: 0 0 2px #000;
   position: absolute;
